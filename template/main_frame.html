@@ -1,0 +1,55 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WTDO</title>
+<script src=""></script>
+<link rel="stylesheet" href="{% static 'main_framecss.css' %}">
+</head>
+<body>
+
+<section>
+
+<div class="first">
+<div id="first_banner">
+
+<div id="wtdo">WTDO</div>
+
+<div id="search_bar">
+<input type="text" placeholder="Search..">
+</div>
+
+<div id="help">HELP</div>
+<form method="post" action="logout">{% csrf_token %}
+    <div id="logout"> <input type="submit" value="LOG OUT"></div></form>
+</div>
+</div>
+
+<div class="sidebar">
+    <div><a  class="active">PLANNED</a></div>
+    <div><a href="form">+ ADD TASK </a></div>
+</div>
+
+
+ <div class="text_written">
+     <h1> <center>PLANNED</center> </h1>
+ <br>
+
+     <br>
+        {% for i in task_sent %}
+         <h1>{{i.id}}.  {{ i.task }}<h2>({{ i.description }} )</h2></h1>
+         <h2>DATE/TIME : {{ i.dateTime }}</h2>
+
+     <div id="remove_button"><a href="delete/{{i.id}}">X</a></div>
+
+     <br>
+     {% endfor %}
+
+
+     </div>
+</section>
+
+</body>
+</html>

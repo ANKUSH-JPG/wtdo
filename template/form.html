@@ -1,0 +1,72 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WTDO</title>
+<script src=""></script>
+<link rel="stylesheet" href="{% static 'main_framecss.css' %}">
+</head>
+<body>
+
+<section>
+
+<div class="first">
+<div id="first_banner">
+
+<div id="wtdo">WTDO</div>
+
+<div id="search_bar">
+<input type="text" placeholder="Search..">
+</div>
+
+<div id="help">HELP</div>
+
+<form method="post" action="logout">{% csrf_token %}
+    <div id="logout"> <input type="submit" value="LOG OUT"></div></form>
+</div>
+</div>
+
+<div class="sidebar">
+  <a href="/main_frame">PLANNED   {count} </a>
+  <a class="active"> + ADD TASK </a>
+</div>
+
+
+
+ <div class="text_written">
+ <h1> <center>ADD ITEM </center> </h1>
+ <br>
+ <div class="content">
+<br>
+     <br>
+
+     <form action=" " method="post">{% csrf_token %}
+         <label for="id">ENTER ID :    </label>
+         <input type="text" id="id" name="id">
+         <br><br><br>
+
+         <label for="task">TASK :    </label>
+         <input type="text" id="task" name="task">
+         <br><br><br>
+         <label for="description">DESCRIPTION :   </label>
+         <textarea name="description"></textarea>
+          <br><br><br>
+         <label for="date">DATE AND TIME  :   </label>
+         <input type="datetime-local" id="date" name="date">
+        <br><br><br>
+     <input type="submit" value="ADD">
+
+     </form>
+ </div>
+ </div>
+
+
+
+
+
+</section>
+
+</body>
+</html>
